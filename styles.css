@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+  }
+  
+h2 {
+  font-style: italic;
+  text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+#start-game{
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+#start-button{
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: blue;
+  color: whitesmoke;
+}
+
+table {
+  margin: auto;
+}
+
+.row {
+  display: table-row;
+  position: relative;
+}
+
+.table-data {
+  text-align: center;
+  display: table-cell;
+  size: 50px;
+  border: 1px solid black;
+}
+
+
+[class="000-row"] {
+  border: 3px solid black;
+}
+
+body {
+  background-color: #cdcdcd;
+}
