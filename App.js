@@ -20,13 +20,10 @@ function makeTable() {
     gameTable.appendChild(tr);
     count++;
     for (let j = 0; j < LENGTH; j++) {
-      let countTwo = -1;
       let td = document.createElement('td');
-      td.setAttribute('class', `table-data ${count}00-row`);
+      td.setAttribute('class', `table-data ${count}00-row'`);
+      td.setAttribute('id', `category-${count}`)
       if (count === 0) {
-        td.setAttribute('id', `category-${count}`);
-        categoryRow.push(td);
-        console.log(categoryRow);
         }
       if(count > 0) {
         td.textContent = "?"
@@ -76,32 +73,21 @@ function makeTable() {
 }
 
 async function getCategories() {
-  let res = await axios.get("http://jservice.io/api/clues?value=100");
-    for (i = 0; i < LENGTH; i++) {
-    let randomId = Math.floor(Math.random() * 100)
-    let randomTitle = res.data[randomId].category.title;
-    categoryRow.push(randomTitle)
-    console.log(categoryRow);
+  let res = await axios.get(`https://jservice.io/api/categories?count=${LENGTH}`);
+  let randomId = Math.floor(Math.random() * 6);
+  console.log(res);
+    for (i = 0; i < res.data.length; i++) {
+      head = res.data[i].title;
+      console.log(head)
   }
 }
 
 
-async function getQuestions() {
-  let res = await axios.get("http://jservice.io/api/clues?category=");
-    for (i = 0; i < LENGTH; i++) {
-    let randomId = Math.floor(Math.random() * 100)
-    let randomQ = res.data[randomId].question;
-    let randomA = res.data[randomId].answer;
-    dataRowOne.push(randomQ, randomA);
-    console.log(dataRowOne);
-  }
-}
-
-async function getAnswers() {
+async function getAnswer() {
   let res = await axios.get("http://jservice.io/api/clues");
 }
 
 
-
-getCategories();
 makeTable();
+getCategories();
+
